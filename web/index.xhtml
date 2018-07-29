@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>SIV_CAR</title>
+
+    </h:head>
+    <h:body>
+        <script src="../web/WEB-INF/Boostrap/bootstrap-grid.css"/>
+        <b:jumbotron styleClass="container" transient="Teste">
+            <div id="logo" align="center">
+                <img src="../web/WEB-INF/Img/logo1.jpg" alt="logo" width="30%" height="40%"/>
+            </div>
+            <p:panel header="Siv_Car - Controller" toggleTitle="Controller" menuTitle="controller">    
+                <p:panelGrid styleClass="container" columns="3">   
+                    <div id="menu" style="display:  inline;">
+                        <b:form>  
+                            <b:commandButton  value="Inserir carro" style="display: inline; font-style: italic;" onclick="PF('dlg1').show();" /> 
+                            <b:commandButton  value="Remover carro" style="display: inline;  font-style: italic;" onclick="PF('dlg2').show();"  />
+                            <b:commandButton  value="Editar carro" style="display: inline; font-style: italic;" onclick="PF('dlg3').show();"  />
+                        </b:form>    
+                        <br/>
+                        <p:dialog header="inserir Carro" widgetVar="dlg1" minHeight="40">
+                            <h:form id="cad-carro">
+                                <b> Modelo:</b> <p:inputText value="#{carroDAO.modelo}" required="true" requiredMessage="Favor inserir modelo"/>
+                                    <br/>
+                                <b> Marca: </b><p:inputText value="#{carroDAO.marca}"   required="true" requiredMessage="Favor inserir marca"/>
+                                    <br/>
+                                    <p:commandButton  value="Gravar"/>   
+                            </h:form> 
+                        </p:dialog>
+
+                        <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">
+                            <h:outputText value="" />
+                        </p:dialog>   
+
+                        <p:dialog header="Effects" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
+                            <h:outputText value="" />
+                        </p:dialog>
+
+                    </div>
+                </p:panelGrid>
+            </p:panel>
+        </b:jumbotron>
+
+        <p:panel footer="SIV_CAR - Direitos reservados." visible="true"> 
+
+        </p:panel>
+    </h:body>
+</html>
+
